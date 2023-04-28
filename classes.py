@@ -201,13 +201,34 @@ class Headgear:
 # phis_dmg_base
 # weapon - присвоенное оружие (по умолчанию None)
 
-class HuTao(Person):
-    element = 'pyro'
-    weapon_type = 'polearm'
-    hp_base = 14459
-    atk_base = 99
+# Одноручники
+class Albedo(Person):
+    element = 'geo'
+    weapon_type = 'sword'
+    hp_base = 12296
+    atk_base = 233
     df_base = 815
-    cd_base = 88.4
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 28.8
+    phis_dmg_base = 0
+    weapon = None
+
+class TravelerGeo(Person):
+    element = 'geo'
+    weapon_type = 'sword'
+    hp_base = 10122
+    atk_base = 245.52
+    df_base = 635
+    cd_base = 50
     cr_base = 5
     heal = 0
     em = 0
@@ -218,6 +239,86 @@ class HuTao(Person):
     electro_dmg_base = 0
     anemo_dmg_base = 0
     geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+# Двуручники
+class AratakiItto(Person):
+    element = 'geo'
+    weapon_type = 'claymore'
+    hp_base = 11954
+    atk_base = 211
+    df_base = 892
+    cd_base = 50
+    cr_base = 24.2
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Noelle(Person):
+    element = 'geo'
+    weapon_type = 'claymore'
+    hp_base = 11235
+    atk_base = 178
+    df_base = 965.9
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+# Копейщики
+class YunJin(Person):
+    element = 'geo'
+    weapon_type = 'polearm'
+    hp_base = 9919
+    atk_base = 178
+    df_base = 684
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 26.7
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Zhongli(Person):
+    element = 'geo'
+    weapon_type = 'polearm'
+    hp_base = 13662
+    atk_base = 233
+    df_base = 686
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 28.8
     phis_dmg_base = 0
     weapon = None
 
@@ -240,6 +341,49 @@ class HuTao(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+# Каталисты
+class Ningguang(Person):
+    element = 'geo'
+    weapon_type = 'catalyst'
+    hp_base = 9110
+    atk_base = 198
+    df_base = 534
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 24
+    phis_dmg_base = 0
+    weapon = None
+# Лучники
+class Gorou(Person):
+    element = 'geo'
+    weapon_type = 'bow'
+    hp_base = 8907
+    atk_base = 170
+    df_base = 603
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 24
+    phis_dmg_base = 0
+    weapon = None
+
+
+
 # Классы оружия: (присутствуют оружия от 3 до 5 звезд)
 # У каждого оружия есть свои атрибуты:
 # weapon_type - тип оружия (sword, claymore, polearm, catalyst, bow)
