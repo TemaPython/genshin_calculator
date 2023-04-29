@@ -373,8 +373,197 @@ class Qiqi(Person):
     phis_dmg_base = 0
     weapon = None
 
-class pas(Person):
+class Bennett(Person):
     element = 'pyro'
+    weapon_type = 'sword'
+    hp_base = 11539
+    atk_base = 178
+    df_base = 718
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 26.7
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class KamisatoAyato(Person):
+    element = 'hydro'
+    weapon_type = 'sword'
+    hp_base = 12751
+    atk_base = 278
+    df_base = 715
+    cd_base = 88.4
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Nilou(Person):
+    element = 'hydro'
+    weapon_type = 'sword'
+    hp_base = 18183
+    atk_base = 214
+    df_base = 677
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Xingqiu(Person):
+    element = 'hydro'
+    weapon_type = 'sword'
+    hp_base = 9514
+    atk_base = 233
+    df_base = 705
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Keqing(Person):
+    element = 'electro'
+    weapon_type = 'sword'
+    hp_base = 12182
+    atk_base = 300
+    df_base = 743
+    cd_base = 88.4
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class KukiShinobu(Person):
+    element = 'electro'
+    weapon_type = 'sword'
+    hp_base = 14183
+    atk_base = 198
+    df_base = 699
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class TravelerElectro(Person):
+    element = 'electro'
+    weapon_type = 'sword'
+    hp_base = 10122
+    atk_base = 246
+    df_base = 635
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Jean(Person):
+    element = 'anemo'
+    weapon_type = 'sword'
+    hp_base = 13662
+    atk_base = 222
+    df_base = 715
+    cd_base = 50
+    cr_base = 5
+    heal = 22.2
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class KaedeharaKazuha(Person):
+    element = 'anemo'
+    weapon_type = 'sword'
+    hp_base = 12410
+    atk_base = 276
+    df_base = 750
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 115
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class TravelerAnemo(Person):
+    element = 'anemo'
     weapon_type = 'sword'
     hp_base = 10122
     atk_base = 246
@@ -499,16 +688,142 @@ class Chongyun(Person):
     phis_dmg_base = 0
     weapon = None
 
-class pas(Person):
+class Dehya(Person):
     element = 'pyro'
     weapon_type = 'claymore'
-    hp_base = 10223
-    atk_base = 258
+    hp_base = 18770
+    atk_base = 247
+    df_base = 584
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Diluc(Person):
+    element = 'pyro'
+    weapon_type = 'claymore'
+    hp_base = 12068
+    atk_base = 311
+    df_base = 729
+    cd_base = 50
+    cr_base = 24.2
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Xinyan(Person):
+    element = 'pyro'
+    weapon_type = 'claymore'
+    hp_base = 10425
+    atk_base = 286
+    df_base = 743
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Beidou(Person):
+    element = 'electro'
+    weapon_type = 'claymore'
+    hp_base = 12146
+    atk_base = 210
     df_base = 603
     cd_base = 50
     cr_base = 5
     heal = 0
     em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 24
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Dori(Person):
+    element = 'electro'
+    weapon_type = 'claymore'
+    hp_base = 14308
+    atk_base = 208
+    df_base = 673
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Razor(Person):
+    element = 'electro'
+    weapon_type = 'claymore'
+    hp_base = 11134
+    atk_base = 217
+    df_base = 699
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 30
+    weapon = None
+
+class Sayu(Person):
+    element = 'anemo'
+    weapon_type = 'claymore'
+    hp_base = 11033
+    atk_base = 227
+    df_base = 693
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 96
     er = 0
     pyro_dmg_base = 0
     cryo_dmg_base = 0
@@ -646,16 +961,37 @@ class Shenhe(Person):
     phis_dmg_base = 0
     weapon = None
 
-class pas(Person):
+class Thoma(Person):
     element = 'pyro'
     weapon_type = 'polearm'
-    hp_base = 12080
-    atk_base = 363
-    df_base = 772
+    hp_base = 9616
+    atk_base = 233
+    df_base = 699
     cd_base = 50
     cr_base = 5
     heal = 0
     em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Xiangling(Person):
+    element = 'pyro'
+    weapon_type = 'polearm'
+    hp_base = 10122
+    atk_base = 210
+    df_base = 623
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 96
     er = 0
     pyro_dmg_base = 0
     cryo_dmg_base = 0
@@ -675,6 +1011,90 @@ class HuTao(Person):
     df_base = 815
     cd_base = 88.4
     cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Candace(Person):
+    element = 'hydro'
+    weapon_type = 'polearm'
+    hp_base = 12551
+    atk_base = 198
+    df_base = 635
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Cyno(Person):
+    element = 'electro'
+    weapon_type = 'polearm'
+    hp_base = 11613
+    atk_base = 296
+    df_base = 799
+    cd_base = 88.4
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class RaidenShogun(Person):
+    element = 'electro'
+    weapon_type = 'polearm'
+    hp_base = 12000
+    atk_base = 314
+    df_base = 734
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 32
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Xiao(Person):
+    element = 'anemo'
+    weapon_type = 'polearm'
+    hp_base = 11840
+    atk_base = 325
+    df_base = 743
+    cd_base = 50
+    cr_base = 24.2
     heal = 0
     em = 0
     er = 0
@@ -751,8 +1171,176 @@ class Nahida(Person):
     phis_dmg_base = 0
     weapon = None
 
-class pas(Person):
+class Klee(Person):
     element = 'pyro'
+    weapon_type = 'catalyst'
+    hp_base = 9563
+    atk_base = 289
+    df_base = 572
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 28.8
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Yanfei(Person):
+    element = 'pyro'
+    weapon_type = 'catalyst'
+    hp_base = 8705
+    atk_base = 223
+    df_base = 546
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 24
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Barbara(Person):
+    element = 'hydro'
+    weapon_type = 'catalyst'
+    hp_base = 11296
+    atk_base = 148
+    df_base = 623
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Mona(Person):
+    element = 'hydro'
+    weapon_type = 'catalyst'
+    hp_base = 9677
+    atk_base = 267
+    df_base = 607
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 32
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class SangonomiyaKokomi(Person):
+    element = 'hydro'
+    weapon_type = 'catalyst'
+    hp_base = 12524
+    atk_base = 218
+    df_base = 611
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 28.8
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Lisa(Person):
+    element = 'electro'
+    weapon_type = 'catalyst'
+    hp_base = 8907
+    atk_base = 215
+    df_base = 534
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 96
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class YaeMiko(Person):
+    element = 'electro'
+    weapon_type = 'catalyst'
+    hp_base = 9643
+    atk_base = 316
+    df_base = 529
+    cd_base = 50
+    cr_base = 24.2
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class ShikanoinHeizou(Person):
+    element = 'anemo'
+    weapon_type = 'catalyst'
+    hp_base = 9919
+    atk_base = 210
+    df_base = 637
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 24
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Sucrose(Person):
+    element = 'anemo'
     weapon_type = 'catalyst'
     hp_base = 9140
     atk_base = 278
@@ -768,6 +1356,27 @@ class pas(Person):
     dendro_dmg_base = 0
     electro_dmg_base = 0
     anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Wanderer(Person):
+    element = 'anemo'
+    weapon_type = 'catalyst'
+    hp_base = 9450
+    atk_base = 305
+    df_base = 564
+    cd_base = 50
+    cr_base = 24.2
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 24
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
@@ -898,17 +1507,164 @@ class Ganyu(Person):
     phis_dmg_base = 0
     weapon = None
 
-class pas(Person):
+class Amber(Person):
     element = 'pyro'
     weapon_type = 'bow'
-    hp_base = 10087
-    atk_base = 270
-    df_base = 586
+    hp_base = 8806
+    atk_base = 258
+    df_base = 559
     cd_base = 50
     cr_base = 5
     heal = 0
     em = 0
     er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Yoimiya(Person):
+    element = 'pyro'
+    weapon_type = 'bow'
+    hp_base = 9450
+    atk_base = 300
+    df_base = 572
+    cd_base = 50
+    cr_base = 24.2
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Tartaglia(Person):
+    element = 'hydro'
+    weapon_type = 'bow'
+    hp_base = 12182
+    atk_base = 280
+    df_base = 757
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 28.8
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Yelan(Person):
+    element = 'hydro'
+    weapon_type = 'bow'
+    hp_base = 13434
+    atk_base = 227
+    df_base = 509
+    cd_base = 50
+    cr_base = 24.2
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Fischl(Person):
+    element = 'electro'
+    weapon_type = 'bow'
+    hp_base = 8553
+    atk_base = 281
+    df_base = 553
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class KujouSara(Person):
+    element = 'electro'
+    weapon_type = 'bow'
+    hp_base = 8907
+    atk_base = 226
+    df_base = 584
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Faruzan(Person):
+    element = 'anemo'
+    weapon_type = 'bow'
+    hp_base = 8907
+    atk_base = 227
+    df_base = 584
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 0
+    pyro_dmg_base = 0
+    cryo_dmg_base = 0
+    hydro_dmg_base = 0
+    dendro_dmg_base = 0
+    electro_dmg_base = 0
+    anemo_dmg_base = 0
+    geo_dmg_base = 0
+    phis_dmg_base = 0
+    weapon = None
+
+class Venti(Person):
+    element = 'anemo'
+    weapon_type = 'bow'
+    hp_base = 9791
+    atk_base = 245
+    df_base = 622
+    cd_base = 50
+    cr_base = 5
+    heal = 0
+    em = 0
+    er = 32
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
