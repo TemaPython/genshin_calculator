@@ -1,12 +1,23 @@
+"""
+Модуль classes предназначен для хранения основных классов и базы данных персонажей и оружия. Он состоит из блоков:
+- Родительский класс Person с методами выдачи оружия и артефактов (give_weapon и give_artifact соответственно)
+- Классы артефактов (Flower, Feather, Timepiece, Goblet и Headgear) хранят введенные характеристики
+- Классы персонажей, распределенные по принципу типа оружия (sword, claymore, polearm, catalyst, bow) и содержат
+базовые характеристики
+- Классы оружия, распределенные по принципу типа оружия (sword, claymore, polearm, catalyst, bow) и содержат базовые
+характеристики
+"""
+
+
 class Person(object):
-    '''
+    """
     Класс Person родительский класс с методами:
     give_weapon - выдать оружие персонажу (атрибуту weapon присваивается
     объект класса оружия)
     give_artifact - выдать персонажу набор артефактов (от 1 до 5)(аттрибутам
     flower, feather, timepiece, goblet, headgear присваивает соответственный
     объект класса артефакта)
-    '''
+    """
 
     def give_weapon(self, Weapon):
         if self.weapon_type == Weapon.weapon_type:
@@ -24,10 +35,10 @@ class Person(object):
 # Классы артефактов
 
 class Flower:
-    '''
+    """
     Класс цветок, имеет основную характеристику hp и 4 дополнительных любых,
     кроме основной характеристики
-    '''
+    """
 
     def __init__(self, cd=0, cr=0, atk=0, atk_perc=0,
                  hp_perc=0, em=0, df=0, df_perc=0, er=0):
@@ -44,10 +55,10 @@ class Flower:
 
 
 class Feather:
-    '''
+    """
     Класс перо, имеет основную характеристику atk и 4 дополнительных любых,
     кроме основной характеристики
-    '''
+    """
 
     def __init__(self, hp=0, cd=0, cr=0, atk_perc=0,
                  hp_perc=0, em=0, df=0, df_perc=0, er=0):
@@ -64,11 +75,11 @@ class Feather:
 
 
 class Timepiece:
-    '''
+    """
     Класс часы, имеет основную характеристику, которая указывается
     при вызове функции (atk_perc, hp_perc, em, df_perc, er)
     и 4 дополнительных любых, кроме основной характеристики
-    '''
+    """
 
     def __init__(self, main_stat: str, hp=0, cd=0, cr=0, atk=0, atk_perc=0,
                  hp_perc=0, em=0, df=0, df_perc=0, er=0):
@@ -97,12 +108,12 @@ class Timepiece:
 
 
 class Goblet:
-    '''
+    """
     Класс кубок, имеет основную характеристику, которая указывается
     при вызове функции (atk_perc, hp_perc, em, df_perc, pyro_dmg, cryo_dmg,
     hydro_dmg, dendro_dmg, electro_dmg, anemo_dmg, geo_dmg, phis_dmg)
     и 4 дополнительных любых, кроме основной характеристики
-    '''
+    """
 
     def __init__(self, main_stat: str, hp=0, cd=0, cr=0, atk=0, atk_perc=0,
                  hp_perc=0, em=0, df=0, df_perc=0, er=0):
@@ -145,11 +156,11 @@ class Goblet:
 
 
 class Headgear:
-    '''
+    """
     Класс шапка, имеет основную характеристику, которая указывается
     при вызове функции (atk_perc, hp_perc, em, cr, cd, heal)
     и 4 дополнительных любых, кроме основной характеристики
-    '''
+    """
 
     def __init__(self, main_stat: str, hp=0, cd=0, cr=0, atk=0, atk_perc=0,
                  hp_perc=0, em=0, df=0, df_perc=0, er=0):
@@ -181,7 +192,7 @@ class Headgear:
             self.heal = 35.9
 
 
-# Классы персонжаей с родительским Person
+# Классы персонажей с родительским Person
 # У каждого персонажа есть атрибуты:
 # element - стихия
 # weapon_type - тип оружия (sword, claymore, polearm, catalyst, bow)
@@ -226,6 +237,7 @@ class Albedo(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class TravelerGeo(Person):
     element = 'geo'
     weapon_type = 'sword'
@@ -246,6 +258,7 @@ class TravelerGeo(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Alhaitham(Person):
     element = 'dendro'
@@ -268,6 +281,7 @@ class Alhaitham(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class TravelerDendro(Person):
     element = 'dendro'
     weapon_type = 'sword'
@@ -288,6 +302,7 @@ class TravelerDendro(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Kaeya(Person):
     element = 'cryo'
@@ -310,6 +325,7 @@ class Kaeya(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class KamisatoAyaka(Person):
     element = 'cryo'
     weapon_type = 'sword'
@@ -330,6 +346,7 @@ class KamisatoAyaka(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Layla(Person):
     element = 'cryo'
@@ -352,6 +369,7 @@ class Layla(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Qiqi(Person):
     element = 'cryo'
     weapon_type = 'sword'
@@ -372,6 +390,7 @@ class Qiqi(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Bennett(Person):
     element = 'pyro'
@@ -394,6 +413,7 @@ class Bennett(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class KamisatoAyato(Person):
     element = 'hydro'
     weapon_type = 'sword'
@@ -414,6 +434,7 @@ class KamisatoAyato(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Nilou(Person):
     element = 'hydro'
@@ -436,6 +457,7 @@ class Nilou(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Xingqiu(Person):
     element = 'hydro'
     weapon_type = 'sword'
@@ -456,6 +478,7 @@ class Xingqiu(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Keqing(Person):
     element = 'electro'
@@ -478,6 +501,7 @@ class Keqing(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class KukiShinobu(Person):
     element = 'electro'
     weapon_type = 'sword'
@@ -498,6 +522,7 @@ class KukiShinobu(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class TravelerElectro(Person):
     element = 'electro'
@@ -520,6 +545,7 @@ class TravelerElectro(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Jean(Person):
     element = 'anemo'
     weapon_type = 'sword'
@@ -540,6 +566,7 @@ class Jean(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class KaedeharaKazuha(Person):
     element = 'anemo'
@@ -562,6 +589,7 @@ class KaedeharaKazuha(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class TravelerAnemo(Person):
     element = 'anemo'
     weapon_type = 'sword'
@@ -583,6 +611,8 @@ class TravelerAnemo(Person):
     phis_dmg_base = 0
     weapon = None
 # Двуручники
+
+
 class AratakiItto(Person):
     element = 'geo'
     weapon_type = 'claymore'
@@ -603,6 +633,7 @@ class AratakiItto(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Noelle(Person):
     element = 'geo'
@@ -625,6 +656,7 @@ class Noelle(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Kaveh(Person):
     element = 'dendro'
     weapon_type = 'claymore'
@@ -645,6 +677,7 @@ class Kaveh(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Eula(Person):
     element = 'cryo'
@@ -667,6 +700,7 @@ class Eula(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Chongyun(Person):
     element = 'cryo'
     weapon_type = 'claymore'
@@ -687,6 +721,7 @@ class Chongyun(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Dehya(Person):
     element = 'pyro'
@@ -709,6 +744,7 @@ class Dehya(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Diluc(Person):
     element = 'pyro'
     weapon_type = 'claymore'
@@ -729,6 +765,7 @@ class Diluc(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Xinyan(Person):
     element = 'pyro'
@@ -751,6 +788,7 @@ class Xinyan(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Beidou(Person):
     element = 'electro'
     weapon_type = 'claymore'
@@ -771,6 +809,7 @@ class Beidou(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Dori(Person):
     element = 'electro'
@@ -793,6 +832,7 @@ class Dori(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Razor(Person):
     element = 'electro'
     weapon_type = 'claymore'
@@ -813,6 +853,7 @@ class Razor(Person):
     geo_dmg_base = 0
     phis_dmg_base = 30
     weapon = None
+
 
 class Sayu(Person):
     element = 'anemo'
@@ -835,6 +876,8 @@ class Sayu(Person):
     phis_dmg_base = 0
     weapon = None
 # Копейщики
+
+
 class YunJin(Person):
     element = 'geo'
     weapon_type = 'polearm'
@@ -855,6 +898,7 @@ class YunJin(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Zhongli(Person):
     element = 'geo'
@@ -877,6 +921,7 @@ class Zhongli(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Yaoyao(Person):
     element = 'dendro'
     weapon_type = 'polearm'
@@ -897,6 +942,7 @@ class Yaoyao(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Mika(Person):
     element = 'cryo'
@@ -919,6 +965,7 @@ class Mika(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Rosaria(Person):
     element = 'cryo'
     weapon_type = 'polearm'
@@ -939,6 +986,7 @@ class Rosaria(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Shenhe(Person):
     element = 'cryo'
@@ -961,6 +1009,7 @@ class Shenhe(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Thoma(Person):
     element = 'pyro'
     weapon_type = 'polearm'
@@ -981,6 +1030,7 @@ class Thoma(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Xiangling(Person):
     element = 'pyro'
@@ -1003,6 +1053,7 @@ class Xiangling(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class HuTao(Person):
     element = 'pyro'
     weapon_type = 'polearm'
@@ -1023,6 +1074,7 @@ class HuTao(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Candace(Person):
     element = 'hydro'
@@ -1045,6 +1097,7 @@ class Candace(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Cyno(Person):
     element = 'electro'
     weapon_type = 'polearm'
@@ -1065,6 +1118,7 @@ class Cyno(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class RaidenShogun(Person):
     element = 'electro'
@@ -1087,6 +1141,7 @@ class RaidenShogun(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Xiao(Person):
     element = 'anemo'
     weapon_type = 'polearm'
@@ -1108,6 +1163,8 @@ class Xiao(Person):
     phis_dmg_base = 0
     weapon = None
 # Каталисты
+
+
 class Ningguang(Person):
     element = 'geo'
     weapon_type = 'catalyst'
@@ -1128,6 +1185,7 @@ class Ningguang(Person):
     geo_dmg_base = 24
     phis_dmg_base = 0
     weapon = None
+
 
 class Baizhu(Person):
     element = 'dendro'
@@ -1150,6 +1208,7 @@ class Baizhu(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Nahida(Person):
     element = 'dendro'
     weapon_type = 'catalyst'
@@ -1170,6 +1229,7 @@ class Nahida(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Klee(Person):
     element = 'pyro'
@@ -1192,6 +1252,7 @@ class Klee(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Yanfei(Person):
     element = 'pyro'
     weapon_type = 'catalyst'
@@ -1212,6 +1273,7 @@ class Yanfei(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Barbara(Person):
     element = 'hydro'
@@ -1234,6 +1296,7 @@ class Barbara(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Mona(Person):
     element = 'hydro'
     weapon_type = 'catalyst'
@@ -1254,6 +1317,7 @@ class Mona(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class SangonomiyaKokomi(Person):
     element = 'hydro'
@@ -1276,6 +1340,7 @@ class SangonomiyaKokomi(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Lisa(Person):
     element = 'electro'
     weapon_type = 'catalyst'
@@ -1296,6 +1361,7 @@ class Lisa(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class YaeMiko(Person):
     element = 'electro'
@@ -1318,6 +1384,7 @@ class YaeMiko(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class ShikanoinHeizou(Person):
     element = 'anemo'
     weapon_type = 'catalyst'
@@ -1338,6 +1405,7 @@ class ShikanoinHeizou(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Sucrose(Person):
     element = 'anemo'
@@ -1360,6 +1428,7 @@ class Sucrose(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Wanderer(Person):
     element = 'anemo'
     weapon_type = 'catalyst'
@@ -1381,6 +1450,8 @@ class Wanderer(Person):
     phis_dmg_base = 0
     weapon = None
 # Лучники
+
+
 class Gorou(Person):
     element = 'geo'
     weapon_type = 'bow'
@@ -1401,6 +1472,7 @@ class Gorou(Person):
     geo_dmg_base = 24
     phis_dmg_base = 0
     weapon = None
+
 
 class Collei(Person):
     element = 'dendro'
@@ -1423,6 +1495,7 @@ class Collei(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Tighnari(Person):
     element = 'dendro'
     weapon_type = 'bow'
@@ -1443,6 +1516,7 @@ class Tighnari(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Aloy(Person):
     element = 'cryo'
@@ -1465,6 +1539,7 @@ class Aloy(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Diona(Person):
     element = 'cryo'
     weapon_type = 'bow'
@@ -1485,6 +1560,7 @@ class Diona(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Ganyu(Person):
     element = 'cryo'
@@ -1507,6 +1583,7 @@ class Ganyu(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Amber(Person):
     element = 'pyro'
     weapon_type = 'bow'
@@ -1527,6 +1604,7 @@ class Amber(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Yoimiya(Person):
     element = 'pyro'
@@ -1549,6 +1627,7 @@ class Yoimiya(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Tartaglia(Person):
     element = 'hydro'
     weapon_type = 'bow'
@@ -1569,6 +1648,7 @@ class Tartaglia(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Yelan(Person):
     element = 'hydro'
@@ -1591,6 +1671,7 @@ class Yelan(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Fischl(Person):
     element = 'electro'
     weapon_type = 'bow'
@@ -1611,6 +1692,7 @@ class Fischl(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class KujouSara(Person):
     element = 'electro'
@@ -1633,6 +1715,7 @@ class KujouSara(Person):
     phis_dmg_base = 0
     weapon = None
 
+
 class Faruzan(Person):
     element = 'anemo'
     weapon_type = 'bow'
@@ -1653,6 +1736,7 @@ class Faruzan(Person):
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
+
 
 class Venti(Person):
     element = 'anemo'
@@ -1675,9 +1759,6 @@ class Venti(Person):
     phis_dmg_base = 0
     weapon = None
 
-
-
-
 # Классы оружия: (присутствуют оружия от 3 до 5 звезд)
 # У каждого оружия есть свои атрибуты:
 # weapon_type - тип оружия (sword, claymore, polearm, catalyst, bow)
@@ -1685,6 +1766,7 @@ class Venti(Person):
 # second_stat - определяет какой дополнительный стат есть у оржия 
 # (hp%, atk&, kr, kd, df, em, er, phis_dmg)
 # weapon_second_stat - значение дополнительного стата оружия
+
 
 class Homa:
     weapon_type = 'polearm'

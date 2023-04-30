@@ -1,228 +1,308 @@
 from classes import *
-from tkinter import *
+import tkinter as tk
 from tkinter import ttk
-window = Tk()
-window.title('Калькулятор артефактов')
-window.geometry('1100x750')
+from tkinter import messagebox
 
-perc_dict = {'Альбедо':Albedo(), 'Итто':AratakiItto(),'Горо':Gorou(),'Путешественник (Гео)':TravelerGeo(),
-             'Нин Гуан':Ningguang(), 'Ноэлль':Noelle(),'Юнь Цзинь':YunJin(),'Чжун Ли':Zhongli(),
-             'Аль-Хайтам':Alhaitham(),'Бай Чжу':Baizhu(),'Коллеи':Collei(),'Кавех':Kaveh(),'Нахида':Nahida(),
-             'Тигнари':Tighnari(),'Путешественник (Дендро)':TravelerDendro(),'Яо Яо':Yaoyao(),
-             'Элой':Aloy(), 'Чуе Юнь':Chongyun(), 'Диона':Diona(), 'Эола':Eula(),
-             'Гань Юй':Ganyu(), 'Кэйа':Kaeya(), 'Аяка':KamisatoAyaka(), 'Лайла':Layla(),
-             'Мика':Mika(), 'Ци Ци':Qiqi(), 'Розария':Rosaria(), 'Шэнь Хэ':Shenhe(),
-             'Эмбер':Amber(),'Ёимия':Yoimiya(),'Беннет':Bennett(),'Дэхья':Dehya(),'Дилюк':Diluc(),
-             'Кли':Klee(),'Ху Тао':HuTao(),'Тома':Thoma(),'Сян Лин':Xiangling(),'Синь Янь':Xinyan(),
-             'Янь Фэй':Yanfei(),
-             'Барбара':Barbara(),'Кандакия':Candace(),'Аято':KamisatoAyato(),'Мона':Mona(),'Нилу':Nilou(),
-             'Кокоми':SangonomiyaKokomi(),'Тарталья':Tartaglia(),'Син Цю':Xingqiu(),'Е Лань':Yelan(),
-             'Бэй Доу':Beidou(),'Сайно':Cyno(),'Дори':Dori(),'Фишль':Fischl(),'Кэ Цин':Keqing(),
-             'Сара':KujouSara(),'Синобу':KukiShinobu(),'Лиза':Lisa(),'Райдэн':RaidenShogun(),'Рэйзор':Razor(),
-             'Путешественник (Электро)':TravelerElectro(),'Яэ Мико':YaeMiko(),
-             'Фарузан':Faruzan(),'Джинн':Jean(),'Кадзуха':KaedeharaKazuha(),'Саю':Sayu(),
-             'Хэйдхо':ShikanoinHeizou(),'Сахароза':Sucrose(),'Путешественник (Анемо)':TravelerAnemo(),'Венти':Venti(),
-             'Странник':Wanderer(),'Сяо':Xiao()}
-weapon_dict = {"Коршун":Korshun, "Хома":Homa}
-def selected_perc(event):
-    # получаем выделенный элемент
-    selected_perc = list_perc.get()
-    global p
-    p = perc_dict[selected_perc]
-
-def selected_weapon(event):
-    # получаем выделенный элемент
-    selected_weapon = list_weapon.get()
-    w = weapon_dict[selected_weapon]
-    p.give_weapon(w)
-
-def click_button_after_perc():
-    weapon_sword = []
-    weapon_claymore = []
-    weapon_polearm = ['Коршун', 'Хома']
-    weapon_catalyst = ['Песнь странника']
-    weapon_bow = []
-
-    l2.pack(anchor=N, padx=6, pady=20)
-
-    global list_weapon
-    if p.weapon_type == 'sword':
-        list_weapon = ttk.Combobox(values=weapon_sword, state="readonly")
-    elif p.weapon_type == 'claymore':
-        list_weapon = ttk.Combobox(values=weapon_claymore, state="readonly")
-    elif p.weapon_type == 'polearm':
-        list_weapon = ttk.Combobox(values=weapon_polearm, state="readonly")
-    elif p.weapon_type == 'catalyst':
-        list_weapon = ttk.Combobox(values=weapon_catalyst, state="readonly")
-    elif p.weapon_type == 'bow':
-        list_weapon = ttk.Combobox(values=weapon_bow, state="readonly")
-    list_weapon.pack(anchor=N, padx=6, pady=6)
-    list_weapon.bind("<<ComboboxSelected>>", selected_weapon)
-
-    ttk.Button(text="Далее", command=click_button_after_weapon).pack()
-
-def click_button_after_weapon():
-    stat = ['КУ', 'КШ', 'АТК', 'АТК%', 'ХП', 'ХП%', 'МС', 'ЗАЩ', 'ЗАЩ%', 'ВЭ']
-    stat_t = ['АТК%','ХП%', 'МС','ЗАЩ%', 'ВЭ']
-    stat_g = ['АТК%', 'ХП%', 'МС', 'ЗАЩ%', 'БОНУС ПИРО','БОНУС КРИО','БОНУС АНЕМО','БОНУС ГЕО','БОНУС ЭЛЕКТРО',
-              'БОНУС ДЕНДРО','БОНУС ГИДРО','БОНУС ФИЗ',]
-    stat_h = ['КУ', 'КШ','АТК%','ХП%', 'МС', 'ЗАЩ%', 'БОНУС ЛЕЧ']
-    l3.pack(anchor=N, padx=6, pady=20)
-
-    l_art1.place(x=80, y=320)
-    l_art1_main1.place(x=35, y=350)
-    l_art1_main2.place(x=75, y=380)
-    global list_stat_fl1, list_stat_fl2, list_stat_fl3, list_stat_fl4
-    global entry_fl1, entry_fl2, entry_fl3, entry_fl4
-    languages_var1 = StringVar(value=stat[0])
-    languages_var2 = StringVar(value=stat[2])
-    list_stat_fl1 = ttk.Combobox(textvariable=languages_var1, exportselection=False, values=stat, state="readonly")
-    entry_fl1 = ttk.Entry()
-    list_stat_fl2 = ttk.Combobox(textvariable=languages_var2, exportselection=False, values=stat, state="readonly")
-    entry_fl2 = ttk.Entry()
-    list_stat_fl3 = ttk.Combobox(exportselection=False, values=stat, state="readonly")
-    entry_fl3 = ttk.Entry()
-    list_stat_fl4 = ttk.Combobox(exportselection=False, values=stat, state="readonly")
-    entry_fl4 = ttk.Entry()
-    list_stat_fl1.place(x=50, y=410)
-    entry_fl1.place(x=50, y=440)
-    list_stat_fl2.place(x=50, y=470)
-    entry_fl2.place(x=50, y=500)
-    list_stat_fl3.place(x=50, y=530)
-    entry_fl3.place(x=50, y=560)
-    list_stat_fl4.place(x=50, y=590)
-    entry_fl4.place(x=50, y=620)
+"""
+Модуль calc_gensh предназзначен для создания приложения и подсчета общих характеристик персонажа. Состоит из блоков:
+- Импорт библиотек (необходимы tkinter  локальный модуль classes)
+- Константы
+- Функция создания персонажа (create_perc)
+- Функция назначения оружия (select_weapon)
+- Создание окна приложения
+- Блок выбора персонажа
+- Блок выбора оружия
+- Блок артефактов
+  - Значения по умолчанию для каждого стата цветка, пера, часов, кубка и шапки
+  - Создание интерактивных элементов для каждого стата цветка, пера, часов, кубка и шапки
+- Функция подсчета характеристик при нажатии кнопки и вывода их в отдельное окно
+- Размещение всех элементов приложения
+"""
 
 
-    l_art2.place(x=320, y=320)
-    l_art2_main1.place(x=250, y=350)
-    l_art2_main2.place(x=300, y=380)
-    global list_stat_ft1, list_stat_ft2, list_stat_ft3, list_stat_ft4
-    global entry_ft1, entry_ft2, entry_ft3, entry_ft4
-    list_stat_ft1 = ttk.Combobox(exportselection=False, values=stat, state="readonly")
-    entry_ft1 = ttk.Entry()
-    list_stat_ft2 = ttk.Combobox(exportselection=False, values=stat, state="readonly")
-    entry_ft2 = ttk.Entry()
-    list_stat_ft3 = ttk.Combobox(exportselection=False, values=stat, state="readonly")
-    entry_ft3 = ttk.Entry()
-    list_stat_ft4 = ttk.Combobox(exportselection=False, values=stat, state="readonly")
-    entry_ft4 = ttk.Entry()
-    list_stat_ft1.place(x=275, y=410)
-    entry_ft1.place(x=275, y=440)
-    list_stat_ft2.place(x=275, y=470)
-    entry_ft2.place(x=275, y=500)
-    list_stat_ft3.place(x=275, y=530)
-    entry_ft3.place(x=275, y=560)
-    list_stat_ft4.place(x=275, y=590)
-    entry_ft4.place(x=275, y=620)
-
-    l_art3.place(x=535, y=320)
-    list_stat_t_main = ttk.Combobox(exportselection=False, values=stat_t, state="readonly")
-    entry_t_main = ttk.Entry()
-    list_stat_t_main.place(x=490, y=350)
-    entry_t_main.place(x=490, y=380)
-    global list_stat_t1, list_stat_t2, list_stat_t3, list_stat_t4
-    global entry_t1, entry_t2, entry_t3, entry_t4
-    list_stat_t1 = ttk.Combobox(exportselection=False, values=stat, state="readonly")
-    entry_t1 = ttk.Entry()
-    list_stat_t2 = ttk.Combobox(exportselection=False, values=stat, state="readonly")
-    entry_t2 = ttk.Entry()
-    list_stat_t3 = ttk.Combobox(exportselection=False, values=stat, state="readonly")
-    entry_t3 = ttk.Entry()
-    list_stat_t4 = ttk.Combobox(exportselection=False, values=stat, state="readonly")
-    entry_t4 = ttk.Entry()
-    list_stat_t1.place(x=490, y=410)
-    entry_t1.place(x=490, y=440)
-    list_stat_t2.place(x=490, y=470)
-    entry_t2.place(x=490, y=500)
-    list_stat_t3.place(x=490, y=530)
-    entry_t3.place(x=490, y=560)
-    list_stat_t4.place(x=490, y=590)
-    entry_t4.place(x=490, y=620)
-
-    l_art4.place(x=720, y=320)
-    list_stat_g_main = ttk.Combobox(exportselection=False, values=stat_g, state="readonly")
-    entry_g_main = ttk.Entry()
-    list_stat_g_main.place(x=690, y=350)
-    entry_g_main.place(x=690, y=380)
-    global list_stat_g1, list_stat_g2, list_stat_g3, list_stat_g4
-    global entry_g1, entry_g2, entry_g3, entry_g4
-    list_stat_g1 = ttk.Combobox(exportselection=False, values=stat, state="readonly")
-    entry_g1 = ttk.Entry()
-    list_stat_g2 = ttk.Combobox(exportselection=False, values=stat, state="readonly")
-    entry_g2 = ttk.Entry()
-    list_stat_g3 = ttk.Combobox(exportselection=False, values=stat, state="readonly")
-    entry_g3 = ttk.Entry()
-    list_stat_g4 = ttk.Combobox(exportselection=False, values=stat, state="readonly")
-    entry_g4 = ttk.Entry()
-    list_stat_g1.place(x=690, y=410)
-    entry_g1.place(x=690, y=440)
-    list_stat_g2.place(x=690, y=470)
-    entry_g2.place(x=690, y=500)
-    list_stat_g3.place(x=690, y=530)
-    entry_g3.place(x=690, y=560)
-    list_stat_g4.place(x=690, y=590)
-    entry_g4.place(x=690, y=620)
-
-    l_art5.place(x=950, y=320)
-    list_stat_h_main = ttk.Combobox(exportselection=False, values=stat_h, state="readonly")
-    entry_h_main = ttk.Entry()
-    list_stat_h_main.place(x=920, y=350)
-    entry_h_main.place(x=920, y=380)
-    global list_stat_h1, list_stat_h2, list_stat_h3, list_stat_h4
-    global entry_h1, entry_h2, entry_h3, entry_h4
-    list_stat_h1 = ttk.Combobox(exportselection=False, values=stat, state="readonly")
-    entry_h1 = ttk.Entry()
-    list_stat_h2 = ttk.Combobox(exportselection=False, values=stat, state="readonly")
-    entry_h2 = ttk.Entry()
-    list_stat_h3 = ttk.Combobox(exportselection=False, values=stat, state="readonly")
-    entry_h3 = ttk.Entry()
-    list_stat_h4 = ttk.Combobox(exportselection=False, values=stat, state="readonly")
-    entry_h4 = ttk.Entry()
-    list_stat_h1.place(x=920, y=410)
-    entry_h1.place(x=920, y=440)
-    list_stat_h2.place(x=920, y=470)
-    entry_h2.place(x=920, y=500)
-    list_stat_h3.place(x=920, y=530)
-    entry_h3.place(x=920, y=560)
-    list_stat_h4.place(x=920, y=590)
-    entry_h4.place(x=920, y=620)
-
-    ttk.Button(text="Далее", command=test_art).place(x=400, y=700)
-
-#def test_art(): # из за этого не работает textvariable
-    #pass
-
-perc = ['Не выбрано','Альбедо', 'Аратаки Итто','Горо','Путешественник (Гео)','Нин Гуан', 'Ноэлль','Юнь Цзинь','Чжун Ли',
-        'Аль-Хайтам','Бай Чжу','Коллеи','Кавех','Нахида','Тигнари','Путешественник (Дендро)','Яо Яо',
-        'Элой', 'Чун Юнь', 'Диона', 'Эола', 'Гань Юй', 'Кэйа', 'Аяка', 'Лайла', 'Мика', 'Ци Ци', 'Розария' , 'Шэнь Хэ',
-        'Ху Тао', 'Эмбер','Ёимия','Беннет','Дэхья','Дилюк', 'Кли','Тома','Сян Лин','Синь Янь','Янь Фэй',
+# Константы
+GEOM = '1700x850'
+FONT = ('Arial', 14)
+WD = 25
+TITLE = 'Калькулятор артефактов'
+STAT = ['КУ', 'КШ', 'АТК', 'АТК%', 'ХП', 'ХП%', 'МС', 'ЗАЩ', 'ЗАЩ%', 'ВЭ']
+STAT_TI = ['АТК% 46.6%', 'ХП% 46.6%', 'МС 187', 'ЗАЩ% 58.3%', 'ВЭ 51.8%']
+STAT_GO = ['АТК%', 'ХП%', 'МС', 'ЗАЩ%', 'БОНУС ПИРО', 'БОНУС КРИО', 'БОНУС АНЕМО', 'БОНУС ГЕО', 'БОНУС ЭЛЕКТРО',
+           'БОНУС ДЕНДРО', 'БОНУС ГИДРО', 'БОНУС ФИЗ']
+STAT_HE = ['КУ', 'КШ', 'АТК%', 'ХП%', 'МС', 'ЗАЩ%', 'БОНУС ЛЕЧ']
+PERC = ['Не выбрано', 'Альбедо', 'Итто', 'Горо', 'Путешественник (Гео)', 'Нин Гуан', 'Ноэлль', 'Юнь Цзинь', 'Чжун Ли',
+        'Аль-Хайтам', 'Бай Чжу', 'Коллеи', 'Кавех', 'Нахида', 'Тигнари', 'Путешественник (Дендро)', 'Яо Яо',
+        'Элой', 'Чун Юнь', 'Диона', 'Эола', 'Гань Юй', 'Кэйа', 'Аяка', 'Лайла', 'Мика', 'Ци Ци', 'Розария', 'Шэнь Хэ',
+        'Ху Тао', 'Эмбер', 'Ёимия', 'Беннет', 'Дэхья', 'Дилюк', 'Кли', 'Тома', 'Сян Лин', 'Синь Янь', 'Янь Фэй',
         'Барбара', 'Кандакия', 'Аято', 'Мона', 'Нилу', 'Кокоми', 'Тарталья', 'Син Цю', 'Е Лань',
-        'Бэй Доу', 'Сайно', 'Дори', 'Фишль', 'Кэ Цин','Сара', 'Синобу', 'Лиза', 'Райдэн', 'Рэйзор',
+        'Бэй Доу', 'Сайно', 'Дори', 'Фишль', 'Кэ Цин', 'Сара', 'Синобу', 'Лиза', 'Райдэн', 'Рэйзор',
         'Путешественник (Электро)', 'Яэ Мико',
-        'Фарузан','Джинн','Кадзуха','Саю','Хэйдхо','Сахароза','Путешественник (Анемо)','Венти','Странник','Сяо']
+        'Фарузан', 'Джинн', 'Кадзуха', 'Саю', 'Хэйдхо', 'Сахароза', 'Путешественник (Анемо)', 'Венти', 'Странник',
+        'Сяо']
+PERC_DICT = {'Альбедо': Albedo(), 'Итто': AratakiItto(), 'Горо': Gorou(), 'Путешественник (Гео)': TravelerGeo(),
+             'Нин Гуан': Ningguang(), 'Ноэлль': Noelle(), 'Юнь Цзинь': YunJin(), 'Чжун Ли': Zhongli(),
+             'Аль-Хайтам': Alhaitham(), 'Бай Чжу': Baizhu(), 'Коллеи': Collei(), 'Кавех': Kaveh(), 'Нахида': Nahida(),
+             'Тигнари': Tighnari(), 'Путешественник (Дендро)': TravelerDendro(), 'Яо Яо': Yaoyao(),
+             'Элой': Aloy(), 'Чуе Юнь': Chongyun(), 'Диона': Diona(), 'Эола': Eula(),
+             'Гань Юй': Ganyu(), 'Кэйа': Kaeya(), 'Аяка': KamisatoAyaka(), 'Лайла': Layla(),
+             'Мика': Mika(), 'Ци Ци': Qiqi(), 'Розария': Rosaria(), 'Шэнь Хэ': Shenhe(),
+             'Эмбер': Amber(), 'Ёимия': Yoimiya(), 'Беннет': Bennett(), 'Дэхья': Dehya(), 'Дилюк': Diluc(),
+             'Кли': Klee(), 'Ху Тао': HuTao(), 'Тома': Thoma(), 'Сян Лин': Xiangling(), 'Синь Янь': Xinyan(),
+             'Янь Фэй': Yanfei(),
+             'Барбара': Barbara(), 'Кандакия': Candace(), 'Аято': KamisatoAyato(), 'Мона': Mona(), 'Нилу': Nilou(),
+             'Кокоми': SangonomiyaKokomi(), 'Тарталья': Tartaglia(), 'Син Цю': Xingqiu(), 'Е Лань': Yelan(),
+             'Бэй Доу': Beidou(), 'Сайно': Cyno(), 'Дори': Dori(), 'Фишль': Fischl(), 'Кэ Цин': Keqing(),
+             'Сара': KujouSara(), 'Синобу': KukiShinobu(), 'Лиза': Lisa(), 'Райдэн': RaidenShogun(), 'Рэйзор': Razor(),
+             'Путешественник (Электро)': TravelerElectro(), 'Яэ Мико': YaeMiko(),
+             'Фарузан': Faruzan(), 'Джинн': Jean(), 'Кадзуха': KaedeharaKazuha(), 'Саю': Sayu(),
+             'Хэйдхо': ShikanoinHeizou(), 'Сахароза': Sucrose(), 'Путешественник (Анемо)': TravelerAnemo(),
+             'Венти': Venti(), 'Странник': Wanderer(), 'Сяо': Xiao()}
+WEAP_DICT = {"Коршун": Korshun, "Хома": Homa}
+WEAPON_SWORD = ['Меч']
+WEAPON_CLAYMORE = ['Двурук']
+WEAPON_POLEARM = ['Коршун', 'Хома']
+WEAPON_CATALYST = ['Песнь странника']
+WEAPON_BOW = ['Лук']
 
-# блок надписей
-l1 = ttk.Label(text='Выберите персонажа', font=50)
-l2 = ttk.Label(text='Выберите оружие', font=50)
-l3 = ttk.Label(text='Выберите статы артфеактов', font=50)
-l_art1 = ttk.Label(text='Цветок', font=30)
-l_art1_main1 = ttk.Label(text='Основной стат - ХП', font=10)
-l_art1_main2 = ttk.Label(text='ХП 4780', font=10)
-l_art2 = ttk.Label(text='Перо', font=30)
-l_art2_main1 = ttk.Label(text='Основной стат - АТК', font=10)
-l_art2_main2 = ttk.Label(text='АТК 311', font=10)
-l_art3 = ttk.Label(text='Часы', font=30)
-l_art4 = ttk.Label(text='Кубок', font=30)
-l_art5 = ttk.Label(text='Шапка', font=30)
-l1.pack(anchor=N, padx=6, pady=20)
-
-list_perc = ttk.Combobox(values=perc, state="readonly")
-list_perc.pack(anchor=N, padx=6, pady=6)
-list_perc.bind("<<ComboboxSelected>>", selected_perc)
+# Функция создания нового персонажа и подбор списка оружия для него
 
 
+def create_perc(*args):
 
-ttk.Button(text="Далее", command=click_button_after_perc).pack()
+    """Функция переназначает класс выбранного персонажа и меняет значения списка оружия подходящего
+    под этого персонажа"""
 
-window.mainloop()
+    selected_perc = PERC_DICT[percbox.get()]
+    if selected_perc.weapon_type == 'sword':
+        weapbox.config(values=WEAPON_SWORD)
+    elif selected_perc.weapon_type == 'claymore':
+        weapbox.config(values=WEAPON_CLAYMORE)
+    elif selected_perc.weapon_type == 'polearm':
+        weapbox.config(values=WEAPON_POLEARM)
+    elif selected_perc.weapon_type == 'catalyst':
+        weapbox.config(values=WEAPON_CATALYST)
+    elif selected_perc.weapon_type == 'bow':
+        weapbox.config(values=WEAPON_BOW)
+    return
+
+# Функция выбора оружия
+
+
+def select_weapon(*args):
+    """
+    Функция переназначает выбранное оружие
+    """
+    selected_weapon = WEAP_DICT[weapbox.get()]
+    print(selected_weapon)
+    return
+
+
+window = tk.Tk()  # порождаем окно как экземпляр класса Tk
+window.geometry(GEOM)
+window.title(TITLE)
+
+# Блок выбора персонажа
+selected_perc = tk.StringVar(value='Не выбрано')
+perctext = ttk.Label(window, font=FONT, text='Выберите персонажа')
+percbox = ttk.Combobox(window, values=PERC, font=FONT, textvariable=selected_perc, width=WD)
+# Блок выбора оружия
+selected_weapon = tk.StringVar(value='Не выбрано')
+weaptext = ttk.Label(window, font=FONT, text='Выберите оружие')
+weapbox = ttk.Combobox(window, values=WEAPON_POLEARM, font=FONT, textvariable=selected_weapon, width=WD)
+
+# Блок артефактов
+arttext = ttk.Label(window, font=FONT, text='Выберете и заполните характеристики артефактов')
+
+# Значения по умолчанию (Каждому combobox нужен свой StringVar, иначе при смене значения, оно будет меняться везде)
+# Цветок
+selectstatfl1 = tk.StringVar(value=STAT[0])
+selectstatfl2 = tk.StringVar(value=STAT[1])
+selectstatfl3 = tk.StringVar(value=STAT[5])
+selectstatfl4 = tk.StringVar(value=STAT[8])
+
+# Перо
+selectstatfe1 = tk.StringVar(value=STAT[0])
+selectstatfe2 = tk.StringVar(value=STAT[1])
+selectstatfe3 = tk.StringVar(value=STAT[5])
+selectstatfe4 = tk.StringVar(value=STAT[8])
+
+# Перо
+selectmainstatti = tk.StringVar(value=STAT_TI[0])
+selectstatti1 = tk.StringVar(value=STAT[0])
+selectstatti2 = tk.StringVar(value=STAT[1])
+selectstatti3 = tk.StringVar(value=STAT[6])
+selectstatti4 = tk.StringVar(value=STAT[9])
+
+# Кубок
+selectmainstatgo = tk.StringVar(value=STAT_TI[0])
+selectstatgo1 = tk.StringVar(value=STAT[0])
+selectstatgo2 = tk.StringVar(value=STAT[1])
+selectstatgo3 = tk.StringVar(value=STAT[6])
+selectstatgo4 = tk.StringVar(value=STAT[9])
+
+# Шапка
+selectmainstathe = tk.StringVar(value=STAT_HE[0])
+selectstathe1 = tk.StringVar(value=STAT[0])
+selectstathe2 = tk.StringVar(value=STAT[1])
+selectstathe3 = tk.StringVar(value=STAT[6])
+selectstathe4 = tk.StringVar(value=STAT[9])
+
+# Создание интерактивных элементов цветка
+flowertext1 = ttk.Label(window, text='Цветок', font=FONT)
+flowertext2 = ttk.Label(window, text='Основной стат ХП', font=FONT)
+flowertext3 = ttk.Label(window, text='ХП 4780', font=FONT)
+flowerbox1 = ttk.Combobox(window, values=STAT, textvariable=selectstatfl1, font=FONT)
+flower1 = ttk.Entry(window, font=FONT)
+flowerbox2 = ttk.Combobox(window, values=STAT, textvariable=selectstatfl2, font=FONT)
+flower2 = ttk.Entry(window, font=FONT)
+flowerbox3 = ttk.Combobox(window, values=STAT, textvariable=selectstatfl3, font=FONT)
+flower3 = ttk.Entry(window, font=FONT)
+flowerbox4 = ttk.Combobox(window, values=STAT, textvariable=selectstatfl4, font=FONT)
+flower4 = ttk.Entry(window, font=FONT)
+
+# Создание интерактивных элементов пера
+feathertext1 = ttk.Label(window, text='Перо', font=FONT)
+feathertext2 = ttk.Label(window, text='Основной стат АТК', font=FONT)
+feathertext3 = ttk.Label(window, text='АТК 311', font=FONT)
+featherbox1 = ttk.Combobox(window, values=STAT, textvariable=selectstatfe1, font=FONT)
+feather1 = ttk.Entry(window, font=FONT)
+featherbox2 = ttk.Combobox(window, values=STAT, textvariable=selectstatfe2, font=FONT)
+feather2 = ttk.Entry(window, font=FONT)
+featherbox3 = ttk.Combobox(window, values=STAT, textvariable=selectstatfe3, font=FONT)
+feather3 = ttk.Entry(window, font=FONT)
+featherbox4 = ttk.Combobox(window, values=STAT, textvariable=selectstatfe4, font=FONT)
+feather4 = ttk.Entry(window, font=FONT)
+
+# Создание интерактивных элементов часов
+timepiecetext1 = ttk.Label(window, text='Часы', font=FONT)
+timepiecetext2 = ttk.Label(window, text='Основной стат', font=FONT)
+timepiecemain = ttk.Combobox(window, values=STAT_TI, textvariable=selectmainstatti, justify='center', font=FONT)
+timepiecebox1 = ttk.Combobox(window, values=STAT, textvariable=selectstatti1, font=FONT)
+timepiece1 = ttk.Entry(window, font=FONT)
+timepiecebox2 = ttk.Combobox(window, values=STAT, textvariable=selectstatti2, font=FONT)
+timepiece2 = ttk.Entry(window, font=FONT)
+timepiecebox3 = ttk.Combobox(window, values=STAT, textvariable=selectstatti3, font=FONT)
+timepiece3 = ttk.Entry(window, font=FONT)
+timepiecebox4 = ttk.Combobox(window, values=STAT, textvariable=selectstatti4, font=FONT)
+timepiece4 = ttk.Entry(window, font=FONT)
+
+# Создание интерактивных элементов часов
+goblettext1 = ttk.Label(window, text='Кубок', font=FONT)
+goblettext2 = ttk.Label(window, text='Основной стат', font=FONT)
+gobletmain = ttk.Combobox(window, values=STAT_GO, textvariable=selectmainstatgo, justify='center', font=FONT)
+gobletbox1 = ttk.Combobox(window, values=STAT, textvariable=selectstatgo1, font=FONT)
+goblet1 = ttk.Entry(window, font=FONT)
+gobletbox2 = ttk.Combobox(window, values=STAT, textvariable=selectstatgo2, font=FONT)
+goblet2 = ttk.Entry(window, font=FONT)
+gobletbox3 = ttk.Combobox(window, values=STAT, textvariable=selectstatgo3, font=FONT)
+goblet3 = ttk.Entry(window, font=FONT)
+gobletbox4 = ttk.Combobox(window, values=STAT, textvariable=selectstatgo4, font=FONT)
+goblet4 = ttk.Entry(window, font=FONT)
+
+# Создание интерактивных элементов кубка
+headgeartext1 = ttk.Label(window, text='Кубок', font=FONT)
+headgeartext2 = ttk.Label(window, text='Основной стат', font=FONT)
+headgearmain = ttk.Combobox(window, values=STAT_HE, textvariable=selectmainstathe, justify='center', font=FONT)
+headgearbox1 = ttk.Combobox(window, values=STAT, textvariable=selectstathe1, font=FONT)
+headgear1 = ttk.Entry(window, font=FONT)
+headgearbox2 = ttk.Combobox(window, values=STAT, textvariable=selectstathe2, font=FONT)
+headgear2 = ttk.Entry(window, font=FONT)
+headgearbox3 = ttk.Combobox(window, values=STAT, textvariable=selectstathe3, font=FONT)
+headgear3 = ttk.Entry(window, font=FONT)
+headgearbox4 = ttk.Combobox(window, values=STAT, textvariable=selectstathe4, font=FONT)
+headgear4 = ttk.Entry(window, font=FONT)
+
+# Функция подсчёта характеристик
+
+
+def clicked():
+    messagebox.showinfo("Проверка", f'Ваша сборка оптимальна на  {None} %')
+
+
+button = ttk.Button(window, text='Подсчитать значения', command=clicked)
+
+
+# Блок размещения элементов
+# Персонаж
+perctext.grid(column=2, row=0, padx=20, pady=10)
+percbox.grid(column=2, row=1, padx=20, pady=10)
+selected_perc.trace_add('write', create_perc)
+
+# Оружие
+weaptext.grid(column=2, row=2, padx=20, pady=10)
+weapbox.grid(column=2, row=3, padx=20, pady=10)
+selected_weapon.trace_add('write', select_weapon)
+
+# Артефакты
+arttext.grid(column=2, row=4, padx=20, pady=10)
+
+# Подблок Цветок
+flowertext1.grid(column=0, row=5, padx=20, pady=10)
+flowertext2.grid(column=0, row=6, padx=20, pady=10)
+flowertext3.grid(column=0, row=7, padx=20, pady=10)
+flowerbox1.grid(column=0, row=8, padx=20, pady=10)
+flower1.grid(column=0, row=9, padx=20, pady=10)
+flowerbox2.grid(column=0, row=10, padx=20, pady=10)
+flower2.grid(column=0, row=11, padx=20, pady=10)
+flowerbox3.grid(column=0, row=12, padx=20, pady=10)
+flower3.grid(column=0, row=13, padx=20, pady=10)
+flowerbox4.grid(column=0, row=14, padx=20, pady=10)
+flower4.grid(column=0, row=15, padx=20, pady=10)
+
+# Подблок Перо
+feathertext1.grid(column=1, row=5, padx=20, pady=10)
+feathertext2.grid(column=1, row=6, padx=20, pady=10)
+feathertext3.grid(column=1, row=7, padx=20, pady=10)
+featherbox1.grid(column=1, row=8, padx=20, pady=10)
+feather1.grid(column=1, row=9, padx=20, pady=10)
+featherbox2.grid(column=1, row=10, padx=20, pady=10)
+feather2.grid(column=1, row=11, padx=20, pady=10)
+featherbox3.grid(column=1, row=12, padx=20, pady=10)
+feather3.grid(column=1, row=13, padx=20, pady=10)
+featherbox4.grid(column=1, row=14, padx=20, pady=10)
+feather4.grid(column=1, row=15, padx=20, pady=10)
+
+# Подблок Часы
+timepiecetext1.grid(column=2, row=5, padx=20, pady=10)
+timepiecetext2.grid(column=2, row=6, padx=20, pady=10)
+timepiecemain.grid(column=2, row=7, padx=20, pady=10)
+timepiecebox1.grid(column=2, row=8, padx=20, pady=10)
+timepiece1.grid(column=2, row=9, padx=20, pady=10)
+timepiecebox2.grid(column=2, row=10, padx=20, pady=10)
+timepiece2.grid(column=2, row=11, padx=20, pady=10)
+timepiecebox3.grid(column=2, row=12, padx=20, pady=10)
+timepiece3.grid(column=2, row=13, padx=20, pady=10)
+timepiecebox4.grid(column=2, row=14, padx=20, pady=10)
+timepiece4.grid(column=2, row=15, padx=20, pady=10)
+
+# Подблок Кубок
+goblettext1.grid(column=3, row=5, padx=20, pady=10)
+goblettext2.grid(column=3, row=6, padx=20, pady=10)
+gobletmain.grid(column=3, row=7, padx=20, pady=10)
+gobletbox1.grid(column=3, row=8, padx=20, pady=10)
+goblet1.grid(column=3, row=9, padx=20, pady=10)
+gobletbox2.grid(column=3, row=10, padx=20, pady=10)
+goblet2.grid(column=3, row=11, padx=20, pady=10)
+gobletbox3.grid(column=3, row=12, padx=20, pady=10)
+goblet3.grid(column=3, row=13, padx=20, pady=10)
+gobletbox4.grid(column=3, row=14, padx=20, pady=10)
+goblet4.grid(column=3, row=15, padx=20, pady=10)
+
+# Подблок Шапка
+headgeartext1.grid(column=4, row=5, padx=20, pady=10)
+headgeartext2.grid(column=4, row=6, padx=20, pady=10)
+headgearmain.grid(column=4, row=7, padx=20, pady=10)
+headgearbox1.grid(column=4, row=8, padx=20, pady=10)
+headgear1.grid(column=4, row=9, padx=20, pady=10)
+headgearbox2.grid(column=4, row=10, padx=20, pady=10)
+headgear2.grid(column=4, row=11, padx=20, pady=10)
+headgearbox3.grid(column=4, row=12, padx=20, pady=10)
+headgear3.grid(column=4, row=13, padx=20, pady=10)
+headgearbox4.grid(column=4, row=14, padx=20, pady=10)
+headgear4.grid(column=4, row=15, padx=20, pady=10)
+
+# Кнопки
+button.grid(column=2, row=16, padx=20, pady=10)  # Кнопка вызова функции подсчета общих характеристик
+
+
+window.mainloop()  # бесконечный цикл ожидания
