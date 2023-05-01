@@ -1,11 +1,14 @@
 """
-Модуль classes предназначен для хранения основных классов и базы данных персонажей и оружия. Он состоит из блоков:
-- Родительский класс Person с методами выдачи оружия и артефактов (give_weapon и give_artifact соответственно)
-- Классы артефактов (Flower, Feather, Timepiece, Goblet и Headgear) хранят введенные характеристики
-- Классы персонажей, распределенные по принципу типа оружия (sword, claymore, polearm, catalyst, bow) и содержат
-базовые характеристики
-- Классы оружия, распределенные по принципу типа оружия (sword, claymore, polearm, catalyst, bow) и содержат базовые
-характеристики
+Модуль classes предназначен для хранения основных классов и базы данных
+ персонажей и оружия. Он состоит из блоков:
+- Родительский класс Person с методами выдачи оружия и артефактов
+ (give_weapon и give_artifact соответственно)
+- Классы артефактов (Flower, Feather, Timepiece, Goblet и Headgear)
+ хранят введенные характеристики
+- Классы персонажей, распределенные по принципу типа оружия
+(sword, claymore, polearm, catalyst, bow) и содержат базовые характеристики
+- Классы оружия, распределенные по принципу типа оружия
+ (sword, claymore, polearm, catalyst, bow) и содержат базовые характеристики
 """
 
 
@@ -224,9 +227,12 @@ class Albedo(Person):
     df_base = 815
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -242,13 +248,16 @@ class TravelerGeo(Person):
     element = 'geo'
     weapon_type = 'sword'
     hp_base = 10122
-    atk_base = 246
+    atk_base = 198
     df_base = 635
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 124
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -268,9 +277,12 @@ class Alhaitham(Person):
     df_base = 727
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -286,13 +298,16 @@ class TravelerDendro(Person):
     element = 'dendro'
     weapon_type = 'sword'
     hp_base = 10122
-    atk_base = 246
+    atk_base = 198
     df_base = 635
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 124
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -312,9 +327,12 @@ class Kaeya(Person):
     df_base = 737
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 26.7
+    er = 126.7
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -334,9 +352,12 @@ class KamisatoAyaka(Person):
     df_base = 729
     cd_base = 88.4
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -351,14 +372,17 @@ class KamisatoAyaka(Person):
 class Layla(Person):
     element = 'cryo'
     weapon_type = 'sword'
-    hp_base = 12802
+    hp_base = 10324
     atk_base = 202
     df_base = 610
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 124
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -378,9 +402,12 @@ class Qiqi(Person):
     df_base = 857
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 22.2
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -400,9 +427,12 @@ class Bennett(Person):
     df_base = 718
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 26.7
+    er = 126.7
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -422,9 +452,12 @@ class KamisatoAyato(Person):
     df_base = 715
     cd_base = 88.4
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -439,14 +472,17 @@ class KamisatoAyato(Person):
 class Nilou(Person):
     element = 'hydro'
     weapon_type = 'sword'
-    hp_base = 18183
+    hp_base = 14117
     atk_base = 214
     df_base = 677
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 128.8
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -462,13 +498,16 @@ class Xingqiu(Person):
     element = 'hydro'
     weapon_type = 'sword'
     hp_base = 9514
-    atk_base = 233
+    atk_base = 188
     df_base = 705
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 124
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -488,9 +527,12 @@ class Keqing(Person):
     df_base = 743
     cd_base = 88.4
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -505,14 +547,17 @@ class Keqing(Person):
 class KukiShinobu(Person):
     element = 'electro'
     weapon_type = 'sword'
-    hp_base = 14183
+    hp_base = 11438
     atk_base = 198
     df_base = 699
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 124
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -528,13 +573,16 @@ class TravelerElectro(Person):
     element = 'electro'
     weapon_type = 'sword'
     hp_base = 10122
-    atk_base = 246
+    atk_base = 198
     df_base = 635
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 124
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -554,9 +602,12 @@ class Jean(Person):
     df_base = 715
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 22.2
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -576,9 +627,12 @@ class KaedeharaKazuha(Person):
     df_base = 750
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 115
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -594,13 +648,16 @@ class TravelerAnemo(Person):
     element = 'anemo'
     weapon_type = 'sword'
     hp_base = 10122
-    atk_base = 246
+    atk_base = 198
     df_base = 635
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 124
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -621,9 +678,12 @@ class AratakiItto(Person):
     df_base = 892
     cd_base = 50
     cr_base = 24.2
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -640,12 +700,15 @@ class Noelle(Person):
     weapon_type = 'claymore'
     hp_base = 11235
     atk_base = 178
-    df_base = 966
+    df_base = 743
     cd_base = 50
     cr_base = 5
+    df_perc = 130
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -665,9 +728,12 @@ class Kaveh(Person):
     df_base = 751
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 96
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -687,9 +753,12 @@ class Eula(Person):
     df_base = 698
     cd_base = 88.4
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -705,13 +774,16 @@ class Chongyun(Person):
     element = 'cryo'
     weapon_type = 'claymore'
     hp_base = 10223
-    atk_base = 258
+    atk_base = 208
     df_base = 603
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 124
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -726,14 +798,17 @@ class Chongyun(Person):
 class Dehya(Person):
     element = 'pyro'
     weapon_type = 'claymore'
-    hp_base = 18770
+    hp_base = 14573
     atk_base = 247
     df_base = 584
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 128.8
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -753,9 +828,12 @@ class Diluc(Person):
     df_base = 729
     cd_base = 50
     cr_base = 24.2
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -771,13 +849,16 @@ class Xinyan(Person):
     element = 'pyro'
     weapon_type = 'claymore'
     hp_base = 10425
-    atk_base = 286
+    atk_base = 231
     df_base = 743
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 124
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -797,9 +878,12 @@ class Beidou(Person):
     df_base = 603
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -814,14 +898,17 @@ class Beidou(Person):
 class Dori(Person):
     element = 'electro'
     weapon_type = 'claymore'
-    hp_base = 14308
+    hp_base = 11539
     atk_base = 208
     df_base = 673
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 124
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -841,9 +928,12 @@ class Razor(Person):
     df_base = 699
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 124
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -863,9 +953,12 @@ class Sayu(Person):
     df_base = 693
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 96
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -886,9 +979,12 @@ class YunJin(Person):
     df_base = 684
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 26.7
+    er = 126.7
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -908,9 +1004,12 @@ class Zhongli(Person):
     df_base = 686
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -925,14 +1024,17 @@ class Zhongli(Person):
 class Yaoyao(Person):
     element = 'dendro'
     weapon_type = 'polearm'
-    hp_base = 14183
+    hp_base = 11438
     atk_base = 198
     df_base = 699
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 124
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -947,14 +1049,17 @@ class Yaoyao(Person):
 class Mika(Person):
     element = 'cryo'
     weapon_type = 'polearm'
-    hp_base = 14434
+    hp_base = 11640
     atk_base = 208
     df_base = 664
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 124
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -970,10 +1075,13 @@ class Rosaria(Person):
     element = 'cryo'
     weapon_type = 'polearm'
     hp_base = 11438
-    atk_base = 277
+    atk_base = 223
     df_base = 661
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 124
+    hp_perc = 100
     heal = 0
     em = 0
     er = 0
@@ -992,13 +1100,16 @@ class Shenhe(Person):
     element = 'cryo'
     weapon_type = 'polearm'
     hp_base = 12080
-    atk_base = 363
+    atk_base = 282
     df_base = 772
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 128.8
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1014,13 +1125,16 @@ class Thoma(Person):
     element = 'pyro'
     weapon_type = 'polearm'
     hp_base = 9616
-    atk_base = 233
+    atk_base = 188
     df_base = 699
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 124
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1040,9 +1154,12 @@ class Xiangling(Person):
     df_base = 623
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 96
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1062,9 +1179,12 @@ class HuTao(Person):
     df_base = 815
     cd_base = 88.4
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1079,14 +1199,17 @@ class HuTao(Person):
 class Candace(Person):
     element = 'hydro'
     weapon_type = 'polearm'
-    hp_base = 12551
+    hp_base = 10122
     atk_base = 198
     df_base = 635
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 124
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1106,9 +1229,12 @@ class Cyno(Person):
     df_base = 799
     cd_base = 88.4
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1128,9 +1254,12 @@ class RaidenShogun(Person):
     df_base = 734
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 32
+    er = 132
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1150,9 +1279,12 @@ class Xiao(Person):
     df_base = 743
     cd_base = 50
     cr_base = 24.2
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1173,9 +1305,12 @@ class Ningguang(Person):
     df_base = 534
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1190,14 +1325,17 @@ class Ningguang(Person):
 class Baizhu(Person):
     element = 'dendro'
     weapon_type = 'catalyst'
-    hp_base = 17192
+    hp_base = 13348
     atk_base = 193
     df_base = 500
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 128.8
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1217,9 +1355,12 @@ class Nahida(Person):
     df_base = 586
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 115
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1239,9 +1380,12 @@ class Klee(Person):
     df_base = 572
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 28.8
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1261,9 +1405,12 @@ class Yanfei(Person):
     df_base = 546
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 24
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1278,14 +1425,17 @@ class Yanfei(Person):
 class Barbara(Person):
     element = 'hydro'
     weapon_type = 'catalyst'
-    hp_base = 11296
+    hp_base = 9110
     atk_base = 148
     df_base = 623
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 124
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1305,9 +1455,12 @@ class Mona(Person):
     df_base = 607
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 32
+    er = 132
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1327,9 +1480,12 @@ class SangonomiyaKokomi(Person):
     df_base = 611
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 28.8
@@ -1349,9 +1505,12 @@ class Lisa(Person):
     df_base = 534
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 96
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1371,9 +1530,12 @@ class YaeMiko(Person):
     df_base = 529
     cd_base = 50
     cr_base = 24.2
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1393,9 +1555,12 @@ class ShikanoinHeizou(Person):
     df_base = 637
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1415,15 +1580,18 @@ class Sucrose(Person):
     df_base = 586
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
     dendro_dmg_base = 0
     electro_dmg_base = 0
-    anemo_dmg_base = 0
+    anemo_dmg_base = 24
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
@@ -1437,15 +1605,18 @@ class Wanderer(Person):
     df_base = 564
     cd_base = 50
     cr_base = 24.2
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
     dendro_dmg_base = 0
     electro_dmg_base = 0
-    anemo_dmg_base = 24
+    anemo_dmg_base = 0
     geo_dmg_base = 0
     phis_dmg_base = 0
     weapon = None
@@ -1460,9 +1631,12 @@ class Gorou(Person):
     df_base = 603
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1478,13 +1652,16 @@ class Collei(Person):
     element = 'dendro'
     weapon_type = 'bow'
     hp_base = 9110
-    atk_base = 231
+    atk_base = 186
     df_base = 559
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 124
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1504,9 +1681,12 @@ class Tighnari(Person):
     df_base = 586
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1526,9 +1706,12 @@ class Aloy(Person):
     df_base = 629
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 28.8
     hydro_dmg_base = 0
@@ -1548,9 +1731,12 @@ class Diona(Person):
     df_base = 559
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 24
     hydro_dmg_base = 0
@@ -1570,9 +1756,12 @@ class Ganyu(Person):
     df_base = 586
     cd_base = 88.3
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1588,13 +1777,16 @@ class Amber(Person):
     element = 'pyro'
     weapon_type = 'bow'
     hp_base = 8806
-    atk_base = 258
+    atk_base = 208
     df_base = 559
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 124
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1614,9 +1806,12 @@ class Yoimiya(Person):
     df_base = 572
     cd_base = 50
     cr_base = 24.2
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1636,9 +1831,12 @@ class Tartaglia(Person):
     df_base = 757
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 28.8
@@ -1658,9 +1856,12 @@ class Yelan(Person):
     df_base = 509
     cd_base = 50
     cr_base = 24.2
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1676,13 +1877,16 @@ class Fischl(Person):
     element = 'electro'
     weapon_type = 'bow'
     hp_base = 8553
-    atk_base = 281
+    atk_base = 227
     df_base = 553
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 124
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1698,13 +1902,16 @@ class KujouSara(Person):
     element = 'electro'
     weapon_type = 'bow'
     hp_base = 8907
-    atk_base = 226
+    atk_base = 182
     df_base = 584
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 124
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1720,13 +1927,16 @@ class Faruzan(Person):
     element = 'anemo'
     weapon_type = 'bow'
     hp_base = 8907
-    atk_base = 227
+    atk_base = 183
     df_base = 584
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 124
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 0
+    er = 100
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1746,9 +1956,12 @@ class Venti(Person):
     df_base = 622
     cd_base = 50
     cr_base = 5
+    df_perc = 100
+    atk_perc = 100
+    hp_perc = 100
     heal = 0
     em = 0
-    er = 32
+    er = 132
     pyro_dmg_base = 0
     cryo_dmg_base = 0
     hydro_dmg_base = 0
@@ -1767,16 +1980,51 @@ class Venti(Person):
 # (hp%, atk&, kr, kd, df, em, er, phis_dmg)
 # weapon_second_stat - значение дополнительного стата оружия
 
+# Одноручные мечи
+
+
+class AquilaFavonia:
+    weapon_type = 'sword'
+    weapon_atk = 674
+    second_stat = 'БОНУСФИЗ'
+    weapon_second_stat = 41.3
+# Двуручные мечи
+
+
+class BeaconOfTheReedSea:
+    weapon_type = 'claymore'
+    weapon_atk = 608
+    second_stat = 'КШ'
+    weapon_second_stat = 33.1
+# Копья
+
 
 class Homa:
     weapon_type = 'polearm'
     weapon_atk = 608
-    second_stat = 'cd'
+    second_stat = 'КУ'
     weapon_second_stat = 66.2
 
 
 class Korshun:
     weapon_type = 'polearm'
     weapon_atk = 674
-    second_stat = 'cr'
+    second_stat = 'КШ'
     weapon_second_stat = 22.4
+
+# Катализаторы
+
+
+class AThousandFloatingDreams:
+    weapon_type = 'catalyst'
+    weapon_atk = 542
+    second_stat = 'МС'
+    weapon_second_stat = 265
+# Луки
+
+
+class AmosBow:
+    weapon_type = 'bow'
+    weapon_atk = 608
+    second_stat = 'АТК%'
+    weapon_second_stat = 49.6
