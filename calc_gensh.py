@@ -113,6 +113,9 @@ def select_weapon(*args):
     """
     Функция переназначает выбранное оружие
     """
+    if percbox.get() == 'Не выбрано':
+        messagebox.showerror("Ошибка", "Сначала выберите персонажа")
+        return
     selected_weapon = WEAP_DICT[weapbox.get()]
     selected_perc.give_weapon(selected_weapon)
     return
@@ -135,7 +138,7 @@ weapbox = ttk.Combobox(window, values=WEAPON_POLEARM, font=FONT,
 
 # Блок артефактов
 arttext = ttk.Label(window, font=FONT,
-                    text='Выберете и заполните характеристики артефактов')
+                    text='Выберите и заполните характеристики артефактов')
 
 # Значения по умолчанию (Каждому combobox нужен свой StringVar,
 # иначе при смене значения, оно будет меняться везде)
@@ -144,12 +147,20 @@ selectstatfl1 = tk.StringVar(value=STAT[0])
 selectstatfl2 = tk.StringVar(value=STAT[1])
 selectstatfl3 = tk.StringVar(value=STAT[5])
 selectstatfl4 = tk.StringVar(value=STAT[8])
+statfl1 = tk.StringVar(value='0')
+statfl2 = tk.StringVar(value='0')
+statfl3 = tk.StringVar(value='0')
+statfl4 = tk.StringVar(value='0')
 
 # Перо
 selectstatfe1 = tk.StringVar(value=STAT[0])
 selectstatfe2 = tk.StringVar(value=STAT[1])
 selectstatfe3 = tk.StringVar(value=STAT[5])
 selectstatfe4 = tk.StringVar(value=STAT[8])
+statfe1 = tk.StringVar(value='0')
+statfe2 = tk.StringVar(value='0')
+statfe3 = tk.StringVar(value='0')
+statfe4 = tk.StringVar(value='0')
 
 # Перо
 selectmainstatti = tk.StringVar(value=STAT_TI[0])
@@ -157,6 +168,10 @@ selectstatti1 = tk.StringVar(value=STAT[0])
 selectstatti2 = tk.StringVar(value=STAT[1])
 selectstatti3 = tk.StringVar(value=STAT[6])
 selectstatti4 = tk.StringVar(value=STAT[9])
+statti1 = tk.StringVar(value='0')
+statti2 = tk.StringVar(value='0')
+statti3 = tk.StringVar(value='0')
+statti4 = tk.StringVar(value='0')
 
 # Кубок
 selectmainstatgo = tk.StringVar(value=STAT_GO[0])
@@ -164,6 +179,10 @@ selectstatgo1 = tk.StringVar(value=STAT[0])
 selectstatgo2 = tk.StringVar(value=STAT[1])
 selectstatgo3 = tk.StringVar(value=STAT[6])
 selectstatgo4 = tk.StringVar(value=STAT[9])
+statgo1 = tk.StringVar(value='0')
+statgo2 = tk.StringVar(value='0')
+statgo3 = tk.StringVar(value='0')
+statgo4 = tk.StringVar(value='0')
 
 # Шапка
 selectmainstathe = tk.StringVar(value=STAT_HE[0])
@@ -171,6 +190,10 @@ selectstathe1 = tk.StringVar(value=STAT[3])
 selectstathe2 = tk.StringVar(value=STAT[1])
 selectstathe3 = tk.StringVar(value=STAT[6])
 selectstathe4 = tk.StringVar(value=STAT[9])
+stathe1 = tk.StringVar(value='0')
+stathe2 = tk.StringVar(value='0')
+stathe3 = tk.StringVar(value='0')
+stathe4 = tk.StringVar(value='0')
 
 # Создание интерактивных элементов цветка
 flowertext1 = ttk.Label(window, text='Цветок', font=FONT)
@@ -178,16 +201,16 @@ flowertext2 = ttk.Label(window, text='Основной стат ХП', font=FONT
 flowertext3 = ttk.Label(window, text='ХП 4780', font=FONT)
 flowerbox1 = ttk.Combobox(window, values=STAT, textvariable=selectstatfl1,
                           font=FONT)
-flower1 = ttk.Entry(window, font=FONT)
+flower1 = ttk.Entry(window, font=FONT, textvariable=statfl1)
 flowerbox2 = ttk.Combobox(window, values=STAT, textvariable=selectstatfl2,
                           font=FONT)
-flower2 = ttk.Entry(window, font=FONT)
+flower2 = ttk.Entry(window, font=FONT, textvariable=statfl2)
 flowerbox3 = ttk.Combobox(window, values=STAT, textvariable=selectstatfl3,
                           font=FONT)
-flower3 = ttk.Entry(window, font=FONT)
+flower3 = ttk.Entry(window, font=FONT, textvariable=statfl3)
 flowerbox4 = ttk.Combobox(window, values=STAT, textvariable=selectstatfl4,
                           font=FONT)
-flower4 = ttk.Entry(window, font=FONT)
+flower4 = ttk.Entry(window, font=FONT, textvariable=statfl4)
 
 # Создание интерактивных элементов пера
 feathertext1 = ttk.Label(window, text='Перо', font=FONT)
@@ -195,16 +218,16 @@ feathertext2 = ttk.Label(window, text='Основной стат АТК', font=F
 feathertext3 = ttk.Label(window, text='АТК 311', font=FONT)
 featherbox1 = ttk.Combobox(window, values=STAT, textvariable=selectstatfe1,
                            font=FONT)
-feather1 = ttk.Entry(window, font=FONT)
+feather1 = ttk.Entry(window, font=FONT, textvariable=statfe1)
 featherbox2 = ttk.Combobox(window, values=STAT, textvariable=selectstatfe2,
                            font=FONT)
-feather2 = ttk.Entry(window, font=FONT)
+feather2 = ttk.Entry(window, font=FONT, textvariable=statfe2)
 featherbox3 = ttk.Combobox(window, values=STAT, textvariable=selectstatfe3,
                            font=FONT)
-feather3 = ttk.Entry(window, font=FONT)
+feather3 = ttk.Entry(window, font=FONT, textvariable=statfe3)
 featherbox4 = ttk.Combobox(window, values=STAT, textvariable=selectstatfe4,
                            font=FONT)
-feather4 = ttk.Entry(window, font=FONT)
+feather4 = ttk.Entry(window, font=FONT, textvariable=statfe4)
 
 # Создание интерактивных элементов часов
 timepiecetext1 = ttk.Label(window, text='Часы', font=FONT)
@@ -214,58 +237,64 @@ timepiecemain = ttk.Combobox(window, values=STAT_TI,
                              font=FONT)
 timepiecebox1 = ttk.Combobox(window, values=STAT, textvariable=selectstatti1,
                              font=FONT)
-timepiece1 = ttk.Entry(window, font=FONT)
+timepiece1 = ttk.Entry(window, font=FONT, textvariable=statti1)
 timepiecebox2 = ttk.Combobox(window, values=STAT, textvariable=selectstatti2,
                              font=FONT)
-timepiece2 = ttk.Entry(window, font=FONT)
+timepiece2 = ttk.Entry(window, font=FONT, textvariable=statti2)
 timepiecebox3 = ttk.Combobox(window, values=STAT, textvariable=selectstatti3,
                              font=FONT)
-timepiece3 = ttk.Entry(window, font=FONT)
+timepiece3 = ttk.Entry(window, font=FONT, textvariable=statti3)
 timepiecebox4 = ttk.Combobox(window, values=STAT, textvariable=selectstatti4,
                              font=FONT)
-timepiece4 = ttk.Entry(window, font=FONT)
+timepiece4 = ttk.Entry(window, font=FONT, textvariable=statti4)
 
-# Создание интерактивных элементов часов
+# Создание интерактивных элементов кубка
 goblettext1 = ttk.Label(window, text='Кубок', font=FONT)
 goblettext2 = ttk.Label(window, text='Основной стат', font=FONT)
 gobletmain = ttk.Combobox(window, values=STAT_GO, textvariable=selectmainstatgo,
                           justify='center', font=FONT)
 gobletbox1 = ttk.Combobox(window, values=STAT, textvariable=selectstatgo1,
                           font=FONT)
-goblet1 = ttk.Entry(window, font=FONT)
+goblet1 = ttk.Entry(window, font=FONT, textvariable=statgo1)
 gobletbox2 = ttk.Combobox(window, values=STAT, textvariable=selectstatgo2,
                           font=FONT)
-goblet2 = ttk.Entry(window, font=FONT)
+goblet2 = ttk.Entry(window, font=FONT, textvariable=statgo2)
 gobletbox3 = ttk.Combobox(window, values=STAT, textvariable=selectstatgo3,
                           font=FONT)
-goblet3 = ttk.Entry(window, font=FONT)
+goblet3 = ttk.Entry(window, font=FONT, textvariable=statgo3)
 gobletbox4 = ttk.Combobox(window, values=STAT, textvariable=selectstatgo4,
                           font=FONT)
-goblet4 = ttk.Entry(window, font=FONT)
+goblet4 = ttk.Entry(window, font=FONT, textvariable=statgo4)
 
-# Создание интерактивных элементов кубка
-headgeartext1 = ttk.Label(window, text='Кубок', font=FONT)
+# Создание интерактивных элементов шапки
+headgeartext1 = ttk.Label(window, text='Шапка', font=FONT)
 headgeartext2 = ttk.Label(window, text='Основной стат', font=FONT)
 headgearmain = ttk.Combobox(window, values=STAT_HE,
                             textvariable=selectmainstathe, justify='center',
                             font=FONT)
 headgearbox1 = ttk.Combobox(window, values=STAT, textvariable=selectstathe1,
                             font=FONT)
-headgear1 = ttk.Entry(window, font=FONT)
+headgear1 = ttk.Entry(window, font=FONT, textvariable=stathe1)
 headgearbox2 = ttk.Combobox(window, values=STAT, textvariable=selectstathe2,
                             font=FONT)
-headgear2 = ttk.Entry(window, font=FONT)
+headgear2 = ttk.Entry(window, font=FONT, textvariable=stathe2)
 headgearbox3 = ttk.Combobox(window, values=STAT, textvariable=selectstathe3,
                             font=FONT)
-headgear3 = ttk.Entry(window, font=FONT)
+headgear3 = ttk.Entry(window, font=FONT, textvariable=stathe3)
 headgearbox4 = ttk.Combobox(window, values=STAT, textvariable=selectstathe4,
                             font=FONT)
-headgear4 = ttk.Entry(window, font=FONT)
+headgear4 = ttk.Entry(window, font=FONT, textvariable=stathe4)
 
 # Функция подсчёта характеристик
 
 
 def clicked():
+    if percbox.get() == 'Не выбрано':
+        messagebox.showerror("Ошибка", "Сначала выберите персонажа")
+        return
+    if weapbox.get() == 'Не выбрано':
+        messagebox.showerror("Ошибка", "Сначала выберите оружие")
+        return
     stat_dict = {'ХП': selected_perc.hp_base, 'ХП%': selected_perc.hp_perc,
                  'АТК': selected_perc.atk_base+selected_perc.weapon.weapon_atk,
                  'АТК%': selected_perc.atk_perc,
@@ -293,7 +322,12 @@ def clicked():
                      timepiece1, timepiece2, timepiece3, timepiece4,
                      goblet1, goblet2, goblet3, goblet4,
                      headgear1, headgear2, headgear3, headgear4]):
-        stat_dict[i.get()] += float(j.get())
+        if j.get().replace(".", "", 1).isdigit() or j.get().replace(",", "",1
+                                                                    ).isdigit():
+            stat_dict[i.get()] += float(j.get())
+        else:
+            messagebox.showerror("Ошибка", "Введенные данные - не число")
+            return
     stat_dict[timepiecemain.get().split()[0]] +=\
         float(timepiecemain.get().split()[1])
     stat_dict[gobletmain.get().split()[0]] +=\
@@ -414,6 +448,5 @@ headgear4.grid(column=4, row=15, padx=20, pady=10)
 # Кнопки
 # Кнопка вызова функции подсчета общих характеристик
 button.grid(column=2, row=16, padx=20, pady=10)
-
 
 window.mainloop()  # бесконечный цикл ожидания
