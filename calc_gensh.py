@@ -1,4 +1,5 @@
 from classes import *
+from tbl import *
 import tkinter as tk
 from tkinter import ttk
 from tkinter import messagebox
@@ -24,7 +25,7 @@ from PIL import ImageTk, Image
 
 
 # Константы
-GEOM = '1700x850'
+GEOM = '1700x950'
 FONT = ('Arial', 14)
 WD = 25
 TITLE = 'Калькулятор артефактов'
@@ -78,7 +79,7 @@ PERC_DICT = {'Альбедо': Albedo(), 'Итто': AratakiItto(), 'Горо': 
              'Хэйдхо': ShikanoinHeizou(), 'Сахароза': Sucrose(),
              'Путешественник (Анемо)': TravelerAnemo(), 'Венти': Venti(),
              'Странник': Wanderer(), 'Сяо': Xiao()}
-IMG_DICT = {'Ху Тао': 'AvatarIcon_Hutao.png'}
+IMG_DICT = {'Ху Тао': '\AvatarIcon_Hutao.png'}
 WEAP_DICT = {'Меч Сокола': AquilaFavonia,
              'Маяк тростникового моря':  BeaconOfTheReedSea,
              'Коршун': Korshun, 'Хома': Homa,
@@ -98,24 +99,24 @@ def create_perc(*args):
     """Функция переназначает класс выбранного персонажа и меняет значения
     списка оружия подходящего
     под этого персонажа"""
-    global selected_perc
-    selected_perc = PERC_DICT[percbox.get()]
+    global current_perc
+    current_perc = PERC_DICT[percbox.get()]
     # Блок изменение картинки персонажа
-    img = Image.open(IMG_DICT[percbox.get()])
+    img = Image.open('perc_avatar' + IMG_DICT[percbox.get()])
     img = ImageTk.PhotoImage(img.resize((150, 150)))
     panel.configure(image=img)
     panel.image = img
 
     # Блок изменения списка оружия
-    if selected_perc.weapon_type == 'sword':
+    if current_perc.weapon_type == 'sword':
         weapbox.config(values=WEAPON_SWORD)
-    elif selected_perc.weapon_type == 'claymore':
+    elif current_perc.weapon_type == 'claymore':
         weapbox.config(values=WEAPON_CLAYMORE)
-    elif selected_perc.weapon_type == 'polearm':
+    elif current_perc.weapon_type == 'polearm':
         weapbox.config(values=WEAPON_POLEARM)
-    elif selected_perc.weapon_type == 'catalyst':
+    elif current_perc.weapon_type == 'catalyst':
         weapbox.config(values=WEAPON_CATALYST)
-    elif selected_perc.weapon_type == 'bow':
+    elif current_perc.weapon_type == 'bow':
         weapbox.config(values=WEAPON_BOW)
     return
 
@@ -130,7 +131,7 @@ def select_weapon(*args):
         messagebox.showerror("Ошибка", "Сначала выберите персонажа")
         return
     selected_weapon = WEAP_DICT[weapbox.get()]
-    selected_perc.give_weapon(selected_weapon)
+    current_perc.give_weapon(selected_weapon)
     return
 
 
@@ -308,22 +309,23 @@ def clicked():
     if weapbox.get() == 'Не выбрано':
         messagebox.showerror("Ошибка", "Сначала выберите оружие")
         return
-    stat_dict = {'ХП': selected_perc.hp_base, 'ХП%': selected_perc.hp_perc,
-                 'АТК': selected_perc.atk_base+selected_perc.weapon.weapon_atk,
-                 'АТК%': selected_perc.atk_perc,
-                 'КШ': selected_perc.cr_base, 'КУ': selected_perc.cd_base,
-                 'МС': selected_perc.em, 'ВЭ': selected_perc.er,
-                 'ЗАЩ': selected_perc.df_base, 'ЗАЩ%': selected_perc.df_perc,
-                 'БОНУСЛЕЧ': selected_perc.heal,
-                 'БОНУСПИРО': selected_perc.pyro_dmg_base,
-                 'БОНУСКРИО': selected_perc.cryo_dmg_base,
-                 'БОНУСАНЕМО': selected_perc.anemo_dmg_base,
-                 'БОНУСГЕО': selected_perc.geo_dmg_base,
-                 'БОНУСЭЛЕКТРО': selected_perc.electro_dmg_base,
-                 'БОНУСДЕНДРО': selected_perc.dendro_dmg_base,
-                 'БОНУСГИДРО': selected_perc.hydro_dmg_base,
-                 'БОНУСФИЗ': selected_perc.phis_dmg_base}
-
+    stat_dict = {'ХП': current_perc.hp_base, 'ХП%': current_perc.hp_perc,
+                 'АТК': current_perc.atk_base+current_perc.weapon.weapon_atk,
+                 'АТК%': current_perc.atk_perc,
+                 'КШ': current_perc.cr_base,
+                 'КУ': round(current_perc.cd_base, 1),
+                 'МС': current_perc.em,
+                 'ВЭ': current_perc.er,
+                 'ЗАЩ': current_perc.df_base, 'ЗАЩ%': current_perc.df_perc,
+                 'БОНУСЛЕЧ': current_perc.heal,
+                 'БОНУСПИРО': current_perc.pyro_dmg_base,
+                 'БОНУСКРИО': current_perc.cryo_dmg_base,
+                 'БОНУСАНЕМО': current_perc.anemo_dmg_base,
+                 'БОНУСГЕО': current_perc.geo_dmg_base,
+                 'БОНУСЭЛЕКТРО': current_perc.electro_dmg_base,
+                 'БОНУСДЕНДРО': current_perc.dendro_dmg_base,
+                 'БОНУСГИДРО': current_perc.hydro_dmg_base,
+                 'БОНУСФИЗ': current_perc.phis_dmg_base}
     for i, j in zip([flowerbox1, flowerbox2, flowerbox3, flowerbox4,
                      featherbox1, featherbox2, featherbox3, featherbox4,
                      timepiecebox1, timepiecebox2, timepiecebox3,
@@ -337,34 +339,44 @@ def clicked():
                      headgear1, headgear2, headgear3, headgear4]):
         if j.get().replace(".", "", 1).isdigit() or j.get().replace(",", "",1
                                                                     ).isdigit():
-            stat_dict[i.get()] += float(j.get().replace(",", ".",1))
+            stat_dict[i.get()] += round(float(j.get().replace(",", ".",1)), 1)
         else:
             messagebox.showerror("Ошибка", "Введенные данные - не число")
             return
     stat_dict[timepiecemain.get().split()[0]] +=\
-        float(timepiecemain.get().split()[1])
+        round(float(timepiecemain.get().split()[1]), 1)
     stat_dict[gobletmain.get().split()[0]] +=\
-        float(gobletmain.get().split()[1])
+        round(float(gobletmain.get().split()[1]), 1)
     stat_dict[headgearmain.get().split()[0]] +=\
-        float(headgearmain.get().split()[1])
-    stat_dict[selected_perc.weapon.second_stat] +=\
-        selected_perc.weapon.weapon_second_stat
+        round(float(headgearmain.get().split()[1]), 1)
+    stat_dict[current_perc.weapon.second_stat] +=\
+        round(current_perc.weapon.weapon_second_stat, 1)
     stat_dict['ХП'] += 4780
     stat_dict['АТК'] += 311
-    stat_dict['ХП'] += round(selected_perc.hp_base * (stat_dict['ХП%']/100-1),
+    stat_dict['ХП'] += round(current_perc.hp_base * (stat_dict['ХП%']/100-1),
                              1)
     stat_dict['АТК'] +=\
-        round((selected_perc.atk_base+selected_perc.weapon.weapon_atk) *
+        round((current_perc.atk_base+current_perc.weapon.weapon_atk) *
               (stat_dict['АТК%'] / 100-1), 1)
     stat_dict['ЗАЩ'] +=\
-        round(selected_perc.df_base * (stat_dict['ЗАЩ%'] / 100-1), 1)
+        round(current_perc.df_base * (stat_dict['ЗАЩ%'] / 100-1), 1)
+    opti_perc = find_optimal_stat(percbox.get(), np.array([stat_dict["ХП"],
+                                                           stat_dict["АТК"],
+                                                           stat_dict["ЗАЩ"],
+                                                           stat_dict["МС"],
+                                                           stat_dict["ВЭ"],
+                                                           stat_dict["КШ"],
+                                                           stat_dict["КУ"]]))
     messagebox.showinfo("Итог подсчёта",
-                        f'Ваша сборка оптимальна на  {None} % \n'
+                        f'Ваша сборка оптимальна на  '
+                        f'{opti_perc} % \n'
                         f'ХП {stat_dict["ХП"]}\n'
                         f'АТК {stat_dict["АТК"]}\n'
                         f'ЗАЩ {stat_dict["ЗАЩ"]}\n'
                         f'МС {stat_dict["МС"]}\n'
                         f'ВЭ {stat_dict["ВЭ"]}\n'
+                        f'КШ {round(stat_dict["КШ"],1)}\n'
+                        f'КУ {round(stat_dict["КУ"],1)}\n'
                         f'БОНУС ЛЕЧ {stat_dict["БОНУСЛЕЧ"]}\n'
                         f'БОНУС ПИРО {stat_dict["БОНУСПИРО"]}\n'
                         f'БОНУС КРИО {stat_dict["БОНУСКРИО"]}\n'
@@ -463,7 +475,7 @@ headgear4.grid(column=4, row=15, padx=20, pady=10)
 button.grid(column=2, row=16, padx=20, pady=10)
 
 # Картинка персонажа по умолчанию
-img = Image.open("white.png")
+img = Image.open("perc_avatar\white.png")
 img = ImageTk.PhotoImage(img.resize((150,150)))
 panel = ttk.Label(window, image=img)
 panel.grid(column=1, row=1, padx=20, pady=10)
