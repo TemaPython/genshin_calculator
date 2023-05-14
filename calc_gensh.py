@@ -137,6 +137,7 @@ def select_weapon(*args):
 
 window = tk.Tk()  # порождаем окно как экземпляр класса Tk
 window.geometry(GEOM)
+window.iconbitmap('icon.ico')
 window.title(TITLE)
 
 # Блок выбора персонажа
